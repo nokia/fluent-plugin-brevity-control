@@ -1,3 +1,7 @@
+#Copyright 2019 - Nokia
+##author: CLOG Team
+##time: 2018.12.01
+
 require 'helper'
 require 'fluent/test/driver/filter'
 require 'fluent/plugin/filter_brevity_control'

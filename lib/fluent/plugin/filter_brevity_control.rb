@@ -1,3 +1,7 @@
+#Copyright 2019 - Nokia
+#author: CLOG Team
+#time: 2018.12.01
+
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
