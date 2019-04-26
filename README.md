@@ -50,7 +50,7 @@ Input8: 2012-11-22 11:22:47 UTC  {"id":8, "host":"web01", "log":{"message":"it's
 Output1: 2012-11-22 11:22:33 UTC  {"id":1, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output2: 2012-11-22 11:22:34 UTC  {"id":2, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output3: 2012-11-22 11:22:36 UTC  {"id":5, "host":"app01", "log":{"message":"it's a test for brevity control"}}
-Output4: 2012-11-22 11:22:45 UTC {"log":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}
+Output4: 2012-11-22 11:22:45 UTC {"level":"info","type":"log","log":{"message":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output5: 2012-11-22 11:22:45 UTC  {"id":6, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output6: 2012-11-22 11:22:46 UTC  {"id":7, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 ```
@@ -92,7 +92,7 @@ Input4: 2012-11-22 11:22:45 UTC  {"id":4, "level":"info", "log":{"message":"it's
 
 Output1: 2012-11-22 11:22:33 UTC  {"id":1, "level":"info", "log":{"message":"it's a test for brevity control"}}
 Output2: 2012-11-22 11:22:34 UTC  {"id":2, "level":"info", "log":{"message":"it's a test for brevity control"}}
-Output3: 2012-11-22 11:22:45 UTC {"log":"brevity control drop 1 message(s), nokia.logging.log, log.message=it's a test for brevity control"}
+Output3: 2012-11-22 11:22:45 UTC {"level":"info","type":"log","log":{"message":"brevity control drop 1 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output4: 2012-11-22 11:22:45 UTC  {"id":4, "level":"info", "log":{"message":"it's a test for brevity control"}}
 ```
 
@@ -124,7 +124,7 @@ Input5: 2012-11-22 11:22:45 UTC  {"id":6, "host":"web01", "log":{"message":"it's
 
 Output1: 2012-11-22 11:22:33 UTC  {"id":1, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output2: 2012-11-22 11:22:34 UTC  {"id":2, "host":"web01", "log":{"message":"it's a test for brevity control"}}
-Output3: 2012-11-22 11:22:45 UTC {"id":6, "host":"web01", "log":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}
+Output3: 2012-11-22 11:22:45 UTC {"id":6, "host":"web01", "level":"info","type":"log","log":{"message":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output4: 2012-11-22 11:22:45 UTC  {"id":6, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 ```
 
@@ -156,7 +156,7 @@ Input5: 2012-11-22 11:22:45 UTC  nokia.logging.log   {"id":6, "host":"web01", "l
 
 Output1: 2012-11-22 11:22:33 UTC  nokia.logging.log  {"id":1, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output2: 2012-11-22 11:22:34 UTC  nokia.logging.log  {"id":2, "host":"web01", "log":{"message":"it's a test for brevity control"}}
-Output3: 2012-11-22 11:22:45 UTC nokia.logging.log   {"log":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}
+Output3: 2012-11-22 11:22:45 UTC nokia.logging.log   {"level":"info","type":"log","log":{"message":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output4: 2012-11-22 11:22:45 UTC  nokia.logging.log  {"id":6, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 ```
 
@@ -186,7 +186,7 @@ Input5: 2012-11-22 11:22:45 UTC  nokia.logging.log   {"id":6, "host":"web01", "l
 
 Output1: 2012-11-22 11:22:33 UTC  nokia.logging.log  {"id":1, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 Output2: 2012-11-22 11:22:34 UTC  nokia.logging.log  {"id":2, "host":"web01", "log":{"message":"it's a test for brevity control"}}
-Output3: 2012-11-22 11:22:45 UTC brevity.control.log   {"log":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}
+Output3: 2012-11-22 11:22:45 UTC brevity.control.log   {"level":"info","type":"log","log":{"message":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output4: 2012-11-22 11:22:45 UTC  nokia.logging.log  {"id":6, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 ```
 
