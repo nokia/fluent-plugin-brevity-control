@@ -1,12 +1,8 @@
-# fluent-plugin-suppress
-https://travis-ci.org/fujiwara/fluent-plugin-suppress
+# fluent-plugin-brevity-control
 
-## Copyright
+fluent-plugin-brevity-control is a fluentd plugin to supress repeatedly logged events. 
 
-Copyright (c) 2012- FUJIWARA Shunichiro
-License   Apache License, Version 2.0
-
-fluent-plugin-brevity-control is built based on fluent-plugin-suppress by Nokia CLOG Team.
+fluent-plugin-brevity-control is based on [fluent-plugin-suppress](https://travis-ci.org/fujiwara/fluent-plugin-suppress) by Nokia.
 
 ## Configuration
 
@@ -189,4 +185,14 @@ Output2: 2012-11-22 11:22:34 UTC  nokia.logging.log  {"id":2, "host":"web01", "l
 Output3: 2012-11-22 11:22:45 UTC brevity.control.log   {"level":"info","type":"log","log":{"message":"brevity control drop 2 message(s), nokia.logging.log, host=web01 | log.message=it's a test for brevity control"}}
 Output4: 2012-11-22 11:22:45 UTC  nokia.logging.log  {"id":6, "host":"web01", "log":{"message":"it's a test for brevity control"}}
 ```
+## How to contribute
 
+We are happy to accept any contributions sent in the form of pull requests. 
+
+## Copyright and License
+
+Copyright (c) 2019 Nokia
+
+License   BSD 3-Clause "New" or "Revised" License
+
+SPDX-License-Identifier: BSD-3-Clause
