@@ -34,6 +34,9 @@ module Fluent::Plugin
               break unless r.has_key?(k)
               r[k]
             end
+            if value.class != String
+              value = value.to_s
+            end
             value ? key+"="+value : nil
           end
           if @all_keys_used

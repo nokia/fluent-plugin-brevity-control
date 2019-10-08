@@ -16,7 +16,7 @@ class BrevityControlFilterTest < Test::Unit::TestCase
   CONFIG = %[
     interval  10
     num       2
-    attr_keys host, message
+    attr_keys hostid, host, message
   ]
 
   CONFIG_WITH_NESTED_KEY = %[
@@ -46,13 +46,13 @@ class BrevityControlFilterTest < Test::Unit::TestCase
     es = Fluent::MultiEventStream.new
 
     time = event_time("2012-11-22 11:22:33 UTC")
-    es.add(time + 1, {"id" => 1, "host" => "web01", "message" => "error!!"})
-    es.add(time + 2, {"id" => 2, "host" => "web01", "message" => "error!!"})
-    es.add(time + 3, {"id" => 3, "host" => "web01", "message" => "error!!"})
-    es.add(time + 4, {"id" => 4, "host" => "web01", "message" => "error!!"})
-    es.add(time + 4, {"id" => 5, "host" => "app01", "message" => "error!!"})
-    es.add(time + 12, {"id" => 6, "host" => "web01", "message" => "error!!"})
-    es.add(time + 13, {"id" => 7, "host" => "web01", "message" => "error!!"})
+    es.add(time + 1, {"id" => 1, "host" => "web01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 2, {"id" => 2, "host" => "web01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 3, {"id" => 3, "host" => "web01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 4, {"id" => 4, "host" => "web01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 4, {"id" => 5, "host" => "app01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 12, {"id" => 6, "host" => "web01", "hostid" => 1, "message" => "error!!"})
+    es.add(time + 13, {"id" => 7, "host" => "web01", "hostid" => 1, "message" => "error!!"})
     es.add(time + 14, {"id" => 8, "host" => "web01", "message" => "error!!"})
 
     d.run(default_tag: "test.info") do
@@ -61,12 +61,12 @@ class BrevityControlFilterTest < Test::Unit::TestCase
     records = d.filtered_records
 
     assert_equal 6, records.length
-    assert_equal({"id" => 1, "host" => "web01", "message" => "error!!"}, records[0])
-    assert_equal({"id" => 2, "host" => "web01", "message" => "error!!"}, records[1])
-    assert_equal({"id" => 5, "host" => "app01", "message" => "error!!"}, records[2])
-    assert_equal({"log"=>"brevity control drop 2 message(s), test.info, host=web01 | message=error!!"}, records[3])
-    assert_equal({"id" => 6, "host" => "web01", "message" => "error!!"}, records[4])
-    assert_equal({"id" => 7, "host" => "web01", "message" => "error!!"}, records[5])
+    assert_equal({"id" => 1, "host" => "web01", "hostid" => 1, "message" => "error!!"}, records[0])
+    assert_equal({"id" => 2, "host" => "web01", "hostid" => 1, "message" => "error!!"}, records[1])
+    assert_equal({"id" => 5, "host" => "app01", "hostid" => 1, "message" => "error!!"}, records[2])
+    assert_equal({"log"=>"brevity control drop 2 message(s), test.info, hostid=1 | host=web01 | message=error!!"}, records[3])
+    assert_equal({"id" => 6, "host" => "web01", "hostid" => 1, "message" => "error!!"}, records[4])
+    assert_equal({"id" => 7, "host" => "web01", "hostid" => 1, "message" => "error!!"}, records[5])
   end
 
   def test_emit_wtih_nested_key
